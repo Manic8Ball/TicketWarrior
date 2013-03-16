@@ -25,12 +25,39 @@
             <p>
             Delivery Type: 
             @Html.DropDownListFor(x => x.MailedOrPickUp, new[] {
-        new SelectListItem() {Text = "Mail them to me.",
-        Value = bool.TrueString},
-        new SelectListItem() {Text = "I'll pick them up in person.",
-            Value = bool.FalseString}
-        }, "Choose an option")
-        </p>
+                new SelectListItem() {Text = "Mail them to me.",
+                Value = bool.TrueString},
+                new SelectListItem() {Text = "I'll pick them up in person.",
+                Value = bool.FalseString}
+            }, "Choose an option")
+            </p>
+            
+            <p>
+            Concert: 
+            @Html.DropDownListFor(x => x.ConcertName, new[] {
+                new SelectListItem() {Text = "The Blues Brothers", Value = "The Blues Brothers"},
+                new SelectListItem() {Text = "Dr. Teeth and the Electric Mayhem", Value = "Dr. Teeth and the Electric Mayhem"},
+                new SelectListItem() {Text = "Wierd Al Yankovic", Value = "Wierd Al Yankovic"},
+                new SelectListItem() {Text = "Black Sabbath", Value = "Black Sabbath"}
+            }, "Choose a concert")
+            </p>
+            
+            <p>
+            Number of tickets: 
+            @Html.DropDownListFor(x => x.NumOfTickets, new[] {
+                new SelectListItem() {Text = "1 Ticket", Value = "1"},
+                new SelectListItem() {Text = "2 Tickets", Value = "2"},
+                new SelectListItem() {Text = "3 Tickets", Value = "3"},
+                new SelectListItem() {Text = "4 Tickets", Value = "4"},
+                new SelectListItem() {Text = "5 Tickets", Value = "5"},
+                new SelectListItem() {Text = "6 Tickets", Value = "6"},
+                new SelectListItem() {Text = "7 Tickets", Value = "7"},
+                new SelectListItem() {Text = "8 Tickets", Value = "8"},
+                new SelectListItem() {Text = "9 Tickets", Value = "9"},
+                new SelectListItem() {Text = "10 Ticket", Value = "10"}
+            }, "How many Tickets")
+            </p>
+            
         <input type="submit" value="Submit Ticket Order" />
         } 
     </div>

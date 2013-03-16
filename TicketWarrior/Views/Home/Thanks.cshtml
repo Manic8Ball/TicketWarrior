@@ -28,9 +28,13 @@
     }
     <div>
         <h1>Thank you for your order, @Model.Name!</h1>
-        <p>You ordered QTY tickets for SHOW.</p>
+        <p>You ordered @Model.NumOfTickets tickets for @Model.ConcertName.</p>
         @if (Model.MailedOrPickUp == true) {
-        @:Your tickets will be in the mail to @Model.Address @Model.City, @Model.State by the end of the next business day.
+        <p>Your tickets will be mailed by the end of the next business day to:</p>
+            <p>@Model.Name <br />
+            @Model.Address <br />
+            @Model.City, @Model.State</p>
+            
         } else {
         @:Your tickets are reserved and are ready for pick up.
         }

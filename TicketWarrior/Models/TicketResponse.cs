@@ -51,5 +51,19 @@ namespace TicketWarrior.Models
             get;
             set;
         }
+
+        [Required(ErrorMessage = "Please choose a concert")]
+        public string ConcertName
+        {
+            get;
+            set;
+        }
+
+        [Required(ErrorMessage = "Please select a number of tickets")]
+        public string NumOfTickets
+        {
+            get;
+            set;
+        }
     }
 }
