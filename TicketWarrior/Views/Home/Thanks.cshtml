@@ -1,0 +1,38 @@
+﻿@model TicketWarrior.Models.TicketResponse
+
+@{
+    ViewBag.Title = "Thanks";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    @{
+        try {
+            WebMail.SmtpServer = "smtp.example.com";
+            WebMail.SmtpPort = 587;
+            WebMail.EnableSsl = true;
+            WebMail.UserName = "mySmtpUsername";
+            WebMail.Password = "mySmtpPassword";
+            WebMail.From = "rsvps@example.com";
+            WebMail.Send("party-host@example.com", "RSVP Notification",
+                Model.Name + "'s order " + ((Model.MailedOrPickUp ) ? "must be mailed to " + Model.Address + ", " + Model.City + ", " + Model.State  : "will be picked up."));
+        } catch (Exception) {
+            @:<b>Sorry - we couldn't send the email to confirm your RSVP.</b>
+        }
+    }
+    <div>
+        <h1>Thank you, @Model.Name!</h1>
+        @if (Model.MailedOrPickUp == true) {
+        @:Thank you for your order. Your tickets will be in the mail by the end of the next business day.
+        } else {
+        @:Your tickets are reserved and are ready for pick up.
+        }
+    </div>
+</body>
+</html>

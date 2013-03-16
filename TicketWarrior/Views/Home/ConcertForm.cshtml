@@ -13,7 +13,24 @@
 </head>
 <body>
     <div>
-        
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <p>Name: @Html.TextBoxFor(x => x.Name) </p>
+            <p>Address: @Html.TextBoxFor(x => x.Address)</p>
+            <p>City: @Html.TextBoxFor(x => x.City)</p>
+            <p>State: @Html.TextBoxFor(x => x.State)</p>
+            <p>
+            How do you want to recieve your tickets? 
+            @Html.DropDownListFor(x => x.MailedOrPickUp, new[] {
+        new SelectListItem() {Text = "Mail them to me.",
+        Value = bool.TrueString},
+        new SelectListItem() {Text = "I'll pick them up in person.",
+            Value = bool.FalseString}
+        }, "Choose an option")
+        </p>
+        <input type="submit" value="Submit Ticket Order" />
+        } 
     </div>
 </body>
 </html>
